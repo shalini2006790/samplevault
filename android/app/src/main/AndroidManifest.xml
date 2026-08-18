@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.samplevault">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="SampleVault" android:roundIcon="@mipmap/ic_launcher" android:supportsRtl="true" android:theme="@style/Theme.SampleVault" android:usesCleartextTraffic="true">
+
+        <activity android:name=".activities.SplashActivity" />
+
+        <!-- This tells Android to launch the Login screen first! -->
+        <activity android:name=".activities.LoginActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.RegistrationActivity" />
+        <activity android:name=".activities.LabHeadDashboardActivity" />
+        <activity android:name=".activities.ScholarDashboardActivity" />
+        <activity android:name=".activities.AddSampleActivity" />
+        <activity android:name=".activities.SampleListActivity" />
+        <activity android:name=".activities.SampleDetailsActivity" />
+        <activity android:name=".activities.ProcessingDetailsActivity" />
+        <activity android:name=".activities.UploadResultsActivity" />
+        <activity android:name=".activities.ApprovalActivity" />
+        <activity android:name=".activities.NotificationsActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+    </application>
+</manifest>

@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><title>Processing Details</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="navbar"><div class="logo-area"><img src="assets/logo.webp"><div><h2>SampleVault</h2><p>Secure. Track. Analyze.</p></div></div><button class="btn btn-outline" onclick="window.location.href='scholar_dashboard.html'">Back</button></div>
+<div class="container">
+    <div class="card"><form id="procForm">
+        <h2 style="color: var(--green);">Sample Processing Details</h2>
+        <div class="grid-3">
+            <div class="form-group"><label>Processing Date</label><input type="date" id="p1" required></div>
+            <div class="form-group"><label>Samples Processed</label><input type="number" id="p2" required></div>
+            <div class="form-group"><label>Process Conducted</label><input type="text" id="p3" required></div>
+        </div>
+        <div class="form-group"><label>Storage Conditions</label><textarea id="p4" rows="2" required></textarea></div>
+        
+        <button type="submit" class="btn" style="width:100%; background: #00f0ff; color: #0b132b;">Save & Proceed to Upload Results</button>
+    </form></div>
+</div>
+<script src="js/api.js"></script>
+<script>
+checkAuth('RESEARCH_SCHOLAR');
+const urlParams = new URLSearchParams(window.location.search);
+const sampleId = urlParams.get('id') || 1; // fallback to 1 if testing manually
+
+document.getElementById('procForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const payload = { processing_date: document.getElementById('p1').value, samples_processed: parseInt(document.getElementById('p2').value), process_conducted: document.getElementById('p3').value, storage_conditions: document.getElementById('p4').value, notes: "" };
+    const res = await fetch(`${API}/samples/${sampleId}/processing`, {method: 'POST', headers: getHeaders(), body: JSON.stringify(payload)});
+    if(res.ok) { window.location.href = `upload_results.html?id=${sampleId}`; } 
+    else { alert("Error saving processing details."); }
+};
+</script></body></html>

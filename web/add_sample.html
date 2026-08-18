@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><title>Add Sample</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="navbar"><div class="logo-area"><img src="assets/logo.webp"><div><h2>SampleVault</h2><p>Secure. Track. Analyze.</p></div></div><button class="btn btn-outline" onclick="window.location.href='scholar_dashboard.html'">Back</button></div>
+<div class="container">
+    <div class="card">
+        <h2 style="color: #0ea5e9;">1. Upload Sample via PDF/Word</h2>
+        <input type="file" id="sampleDoc" class="form-group" style="background:#fff; color:#000;">
+        <button class="btn" style="background:#0ea5e9; width:100%;" onclick="window.location.href='processing_details.html'">Upload Document & Proceed</button>
+    </div>
+    
+    <div style="text-align:center; margin: 20px 0; color:var(--text-muted);">- OR -</div>
+    
+    <div class="card"><form id="addForm">
+        <h2 style="color: var(--accent);">2. Enter Manually</h2>
+        <div class="grid-3">
+            <div class="form-group"><label>Sample Type</label><input type="text" id="f1" required></div>
+            <div class="form-group"><label>Volume of Sample</label><input type="number" step="0.1" id="f2" required></div>
+            <div class="form-group"><label>Number of Samples</label><input type="number" id="f3" required></div>
+            <div class="form-group"><label>Depositor Name</label><input type="text" id="f4" required></div>
+            <div class="form-group"><label>Institution</label><input type="text" id="f5" required></div>
+            <div class="form-group"><label>Contact Number</label><input type="text" id="f6" required></div>
+            <div class="form-group"><label>E-Mail ID</label><input type="email" id="f7" required></div>
+            <div class="form-group"><label>Date of Deposit</label><input type="date" id="f8" required></div>
+            <div class="form-group"><label>Storage Options</label><input type="text" id="f9" required></div>
+        </div>
+        <div class="form-group"><label>Experiment Details</label><textarea id="f10" rows="3" required></textarea></div>
+        <button type="submit" class="btn btn-green" style="width:100%;">Submit Manual Form & Proceed</button>
+    </form></div>
+</div>
+<script src="js/api.js"></script>
+<script>
+checkAuth('RESEARCH_SCHOLAR');
+document.getElementById('addForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const payload = { sample_type: document.getElementById('f1').value, volume: parseFloat(document.getElementById('f2').value), number_of_samples: parseInt(document.getElementById('f3').value), depositor_name: document.getElementById('f4').value, institution: document.getElementById('f5').value, contact_number: document.getElementById('f6').value, email_id: document.getElementById('f7').value, date_of_deposit: document.getElementById('f8').value, storage_options: document.getElementById('f9').value, experiment_details: document.getElementById('f10').value };
+    const res = await fetch(`${API}/samples/`, {method: 'POST', headers: getHeaders(), body: JSON.stringify(payload)});
+    if(res.ok) { 
+        const d = await res.json();
+        // Redirect to processing details just like the flowchart!
+        window.location.href = `processing_details.html?id=${d.id}`; 
+    }
+};
+</script></body></html>

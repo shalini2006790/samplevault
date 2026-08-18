@@ -1,0 +1,21 @@
+<!DOCTYPE html><html><head><title>Scholar Dashboard</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="navbar"><div class="logo-area"><img src="assets/logo.webp"><div><h2>SampleVault</h2><p>Secure. Track. Analyze.</p></div></div><button class="btn btn-outline" onclick="logout()">Logout</button></div>
+<div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:center;"><h2>My Dashboard</h2><button class="btn btn-green" onclick="window.location.href='add_sample.html'">+ Add Sample</button></div>
+    <div class="card">
+        <table>
+            <thead><tr><th>Sample ID</th><th>Type</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="tb"></tbody>
+        </table>
+    </div>
+</div>
+<script src="js/api.js"></script>
+<script>
+checkAuth('RESEARCH_SCHOLAR');
+async function load() {
+    const res = await fetch(`${API}/samples/`, {headers: getHeaders()});
+    const data = await res.json();
+    document.getElementById('tb').innerHTML = data.map(s => `<tr><td>${s.sample_id}</td><td>${s.sample_type}</td><td>${s.created_at.split('T')[0]}</td><td><span class="badge bg-${s.status.toLowerCase()}">${s.status}</span></td></tr>`).join('');
+}
+load();
+</script></body></html>

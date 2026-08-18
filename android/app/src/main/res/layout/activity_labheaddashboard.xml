@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#0b132b">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Command Center"
+        android:textColor="#00f0ff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Analytics Dashboard -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+        <TextView android:id="@+id/tvTotal" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Total:\n0" android:textColor="#ffffff" android:textAlignment="center" />
+        <TextView android:id="@+id/tvApproved" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Approved:\n0" android:textColor="#10b981" android:textAlignment="center" />
+        <TextView android:id="@+id/tvPending" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Pending:\n0" android:textColor="#f59e0b" android:textAlignment="center" />
+    </LinearLayout>
+
+    <!-- Navigation Tabs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnTabApprovals"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Approvals"
+            android:backgroundTint="#0ea5e9"
+            android:textColor="#ffffff"
+            android:layout_marginEnd="5dp" />
+
+        <Button
+            android:id="@+id/btnTabEmails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Send Emails"
+            android:backgroundTint="#1c2541"
+            android:textColor="#94a3b8"
+            android:layout_marginStart="5dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pending Approvals Queue:"
+        android:textColor="#94a3b8"
+        android:layout_marginBottom="10dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/labSamplesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+</LinearLayout>

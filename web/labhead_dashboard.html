@@ -1,0 +1,83 @@
+<!DOCTYPE html><html><head><title>Lab Head Dashboard</title><link rel="stylesheet" href="css/style.css">
+<style>
+    .tabs { display: flex; margin-bottom: 20px; border-bottom: 2px solid rgba(0, 240, 255, 0.2); }
+    .tab-btn { background: transparent; border: none; color: var(--text-muted); padding: 12px 24px; cursor: pointer; font-size: 16px; font-weight: bold; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.3s ease; }
+    .tab-btn:hover { color: #fff; }
+    .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+</style>
+</head><body>
+<div class="navbar"><div class="logo-area"><img src="assets/logo.webp"><div><h2>SampleVault</h2><p>Secure. Track. Analyze.</p></div></div><button class="btn btn-outline" onclick="logout()">Logout</button></div>
+<div class="container">
+    <h2>Command Center</h2>
+    <div class="grid-3">
+        <div class="stat-box">Total Samples<h3 id="st-tot">0</h3></div>
+        <div class="stat-box" style="border-color:var(--green)">Approved<h3 id="st-app" style="color:var(--green)">0</h3></div>
+        <div class="stat-box" style="border-color:#f59e0b">Pending<h3 id="st-pen" style="color:#f59e0b">0</h3></div>
+    </div>
+    
+    <div class="card" style="margin-top:20px;">
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-approvals" onclick="switchTab('APPROVALS')">Pending Approvals</button>
+            <button class="tab-btn" id="tab-emails" onclick="switchTab('EMAILS')">Send Client Emails</button>
+        </div>
+        
+        <table id="approvals-table">
+            <thead><tr><th>Sample ID</th><th>Type</th><th>Depositor</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody id="tb-approvals"></tbody>
+        </table>
+
+        <table id="emails-table" style="display: none;">
+            <thead><tr><th>Sample ID</th><th>Type</th><th>Client Email</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody id="tb-emails"></tbody>
+        </table>
+    </div>
+</div>
+<script src="js/api.js"></script>
+<script>
+checkAuth('LAB_HEAD');
+let allSamples = [];
+
+function switchTab(tab) {
+    if (tab === 'APPROVALS') {
+        document.getElementById('tab-approvals').classList.add('active');
+        document.getElementById('tab-emails').classList.remove('active');
+        document.getElementById('approvals-table').style.display = 'table';
+        document.getElementById('emails-table').style.display = 'none';
+    } else {
+        document.getElementById('tab-emails').classList.add('active');
+        document.getElementById('tab-approvals').classList.remove('active');
+        document.getElementById('emails-table').style.display = 'table';
+        document.getElementById('approvals-table').style.display = 'none';
+    }
+    renderLists();
+}
+
+async function load() {
+    const st = await (await fetch(`${API}/samples/dashboard/analytics`, {headers: getHeaders()})).json();
+    document.getElementById('st-tot').innerText = st.total_samples; 
+    document.getElementById('st-app').innerText = st.approved_samples; 
+    document.getElementById('st-pen').innerText = st.pending_samples;
+    allSamples = await (await fetch(`${API}/samples/`, {headers: getHeaders()})).json();
+    renderLists();
+}
+
+function renderLists() {
+    const pendingList = allSamples.filter(s => ['PROCESSING', 'UNDER_REVIEW', 'DRAFT', 'SUBMITTED'].includes(s.status));
+    document.getElementById('tb-approvals').innerHTML = pendingList.length ? pendingList.map(s => 
+        `<tr><td>${s.sample_id}</td><td>${s.sample_type}</td><td>${s.depositor_name}</td><td><span class="badge bg-submitted">${s.status}</span></td>
+        <td><button class="btn btn-green" onclick="approve(${s.id})">Approve Data</button></td></tr>`
+    ).join('') : `<tr><td colspan="5" style="text-align:center; color:#94a3b8;">No pending approvals found.</td></tr>`;
+
+    const emailList = allSamples.filter(s => ['APPROVED', 'RESULT_SENT'].includes(s.status));
+    document.getElementById('tb-emails').innerHTML = emailList.length ? emailList.map(s => 
+        `<tr><td style="color:#00f0ff; font-weight:bold;">${s.sample_id}</td><td>${s.sample_type}</td><td>${s.email_id}</td>
+        <td><span class="badge ${s.status === 'RESULT_SENT' ? 'bg-draft' : 'bg-approved'}">${s.status}</span></td>
+        <td>${s.status === 'RESULT_SENT' ? `<button class="btn" style="background:#64748b; cursor:not-allowed;" disabled>Email Sent</button>` : `<button class="btn" style="background:#0ea5e9;" onclick="sendEmail(${s.id})">Send Results Email</button>`}</td></tr>`
+    ).join('') : `<tr><td colspan="5" style="text-align:center; color:#94a3b8;">No approved samples ready for email.</td></tr>`;
+}
+
+async function approve(id) { await fetch(`${API}/samples/${id}/approve`, {method:'POST', headers: getHeaders()}); load(); }
+async function sendEmail(id) { await fetch(`${API}/samples/${id}/send-results`, {method:'POST', headers: getHeaders()}); alert("Results emailed to client!"); load(); }
+
+load();
+</script></body></html>

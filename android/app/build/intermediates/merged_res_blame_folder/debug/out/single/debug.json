@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_addsample.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_addsample.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_registration.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_registration.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_uploadresults.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_uploadresults.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_scholardashboard.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_scholardashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_samplelist.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_samplelist.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\drawable_logo.png.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_processingdetails.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_processingdetails.xml"
+    },
+    {
+        "merged": "com.samplevault.app-merged_res-32:/layout_activity_labheaddashboard.xml.flat",
+        "source": "com.samplevault.app-main-34:/layout/activity_labheaddashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_notifications.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_sampledetails.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_sampledetails.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_labheaddashboard.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_labheaddashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_approval.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_approval.xml"
+    },
+    {
+        "merged": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-merged_res-32:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\hp\\.gradle\\daemon\\8.9\\com.samplevault.app-main-34:\\layout\\activity_splash.xml"
+    }
+]

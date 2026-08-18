@@ -1,0 +1,28 @@
+<!DOCTYPE html><html><head><title>Upload Results</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="navbar"><div class="logo-area"><img src="assets/logo.webp"><div><h2>SampleVault</h2><p>Secure. Track. Analyze.</p></div></div><button class="btn btn-outline" onclick="window.location.href='scholar_dashboard.html'">Cancel</button></div>
+<div class="container">
+    <div class="card">
+        <h2 style="color: var(--accent);">Upload Results & Raw Data</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Attach your finalized result PDFs and raw data exports here before submitting to the Lab Head.</p>
+        
+        <div class="form-group">
+            <label>Upload Results (PDF)</label>
+            <input type="file" style="background:#fff; color:#000;" accept=".pdf">
+        </div>
+        
+        <div class="form-group" style="margin-top: 20px;">
+            <label>Upload Raw Data (Word/Excel)</label>
+            <input type="file" style="background:#fff; color:#000;" accept=".doc,.docx,.xls,.xlsx">
+        </div>
+        
+        <button id="btnSubmitFinal" class="btn btn-green" style="width:100%; margin-top: 30px;">Submit to Lab Head for Approval</button>
+    </div>
+</div>
+<script src="js/api.js"></script>
+<script>
+checkAuth('RESEARCH_SCHOLAR');
+document.getElementById('btnSubmitFinal').onclick = async () => {
+    alert("Files attached successfully! Sample submitted for Lab Head Approval.");
+    window.location.href = 'scholar_dashboard.html';
+};
+</script></body></html>

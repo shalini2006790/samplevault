@@ -1,0 +1,25 @@
+
+:root { --bg: #0b132b; --card: #1c2541; --accent: #00f0ff; --green: #10b981; --text: #f8fafc; --text-muted: #94a3b8; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); margin: 0; }
+.navbar { background: rgba(28, 37, 65, 0.9); padding: 15px 30px; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0, 240, 255, 0.2); }
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.logo-area img { height: 40px; }
+.logo-area h2 { margin: 0; color: var(--accent); }
+.logo-area p { margin: 0; font-size: 10px; color: var(--text-muted); }
+.container { padding: 30px; max-width: 1200px; margin: auto; }
+.card { background: var(--card); padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05); margin-bottom: 20px;}
+.btn { background: var(--accent); color: var(--bg); border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+.btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+.btn-green { background: var(--green); }
+.btn-red { background: #ef4444; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-size: 14px; color: var(--text-muted); margin-bottom: 5px; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--text-muted); color: #fff; border-radius: 5px; box-sizing: border-box; }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+th { color: var(--accent); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stat-box { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; text-align: center; border-top: 3px solid var(--accent); }
+.stat-box h3 { font-size: 30px; margin: 10px 0 0 0; }
+.badge { padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+.bg-draft { background: #64748b; } .bg-submitted { background: #f59e0b; } .bg-approved { background: var(--green); } .bg-rejected { background: #ef4444; }

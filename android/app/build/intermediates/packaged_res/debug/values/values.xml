@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SampleVault" parent="Theme.MaterialComponents.DayNight.NoActionBar"><item name="colorPrimary">#00f0ff</item><item name="colorOnPrimary">#ffffff</item><item name="android:statusBarColor">#0b132b</item></style>
+</resources>

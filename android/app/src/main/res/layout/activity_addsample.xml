@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0b132b"
+    android:padding="20dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Add New Sample"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnUploadPdf"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="1. Upload Sample via PDF/Word"
+        android:backgroundTint="#0ea5e9"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- OR -"
+        android:textColor="#94a3b8"
+        android:textAlignment="center"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Scrollable Manual Entry Form containing ALL 10 fields -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. Enter Manually"
+                android:textColor="#00f0ff"
+                android:layout_marginBottom="10dp" />
+
+            <EditText android:id="@+id/etType" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Sample Type" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etVolume" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Volume of Sample" android:inputType="numberDecimal" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etCount" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Number of Samples" android:inputType="number" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etName" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Depositor Name" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etInst" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Institution" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etContact" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Contact Number" android:inputType="phone" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etEmail" android:layout_width="match_parent" android:layout_height="50dp" android:hint="E-Mail ID" android:inputType="textEmailAddress" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etDate" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Date of Deposit (YYYY-MM-DD)" android:inputType="date" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etStorage" android:layout_width="match_parent" android:layout_height="50dp" android:hint="Storage Options" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="10dp"/>
+            <EditText android:id="@+id/etExp" android:layout_width="match_parent" android:layout_height="100dp" android:gravity="top" android:hint="Experiment Details" android:background="#1c2541" android:textColor="#fff" android:textColorHint="#94a3b8" android:padding="10dp" android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/btnSubmitManual"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Submit Form &amp; Proceed"
+                android:backgroundTint="#10b981"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_marginBottom="30dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
